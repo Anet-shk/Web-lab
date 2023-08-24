@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <template id="shortProfileTemplate">
+      <p>
+        <slot name="photo"></slot>
+      </p>
+      <p>
+        <slot name="name"></slot>
+      </p>
+      <p>
+        <slot name="details"></slot>
+      </p>
+    </template>
+
+    <script>
+      customElements.define(
+        'short-profile',
+        class extends HTMLElement {
+          // Наследование обеспечивает, что мы имеет свойства и методы по умолчанию встроенного HTML элемента
+
+          // Вызывается всякий раз, когда создается новый элемент
+          constructor() {
+            // Вызываем родительский конструктор, т.е конструктор для HTMLElement. Таким образом устанавливаются свойства базового HTML элемента.
+            super();
+
+            // Берет <template> и хранит его в переменной `warinng`
+            const shortProfileTemplate = document.getElementById(
+              'shortProfileTemplate'
+            );
+
+            // Хранит контент шаблона в переменной `mywarning`
+            const shortProfile = shortProfileTemplate.content;
+
+            const shadowRoot = this.attachShadow({ mode: 'open' }).appendChild(
+              shortProfile.cloneNode(true)
+            );
+          }
+        }
+      );
+    </script>
+  </body>
+</html>

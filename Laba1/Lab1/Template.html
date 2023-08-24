@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <template id="fullProfileTemplate">
+            <p><slot name="name"></slot></p>
+            <p><slot name="gender"></slot></p>
+            <p><slot name="old"></slot></p>
+            <address>
+                <p><slot name="email"></slot></p>
+                <p><slot name="tel"></slot></p>
+            </address>
+            <p><slot name="cautry"></slot></p>
+            <p><slot name="taun"></slot></p>
+            <p><slot name="comment"></slot></p>
+            <p><slot name="map"></slot></p>
+        </template>
+        <script>
+            customElements.define("full-profile", class extends HTMLElement {
+                // Наследование обеспечивает, что мы имеет свойства и методы по умолчанию встроенного HTML элемента
+
+                // Вызывается всякий раз, когда создается новый элемент
+                constructor() {
+
+                    // Вызываем родительский конструктор, т.е конструктор для HTMLElement. Таким образом устанавливаются свойства базового HTML элемента.
+                    super();
+
+                    // Берет <template> и хранит его в переменной `warinng`
+                    const fullProfileTemplate = document.getElementById("fullProfileTemplate");
+
+                    // Хранит контент шаблона в переменной `mywarning`
+                    const fullProfile = fullProfileTemplate.content;
+
+                    const shadowRoot = this.attachShadow({ mode: "open" }).appendChild(fullProfile.cloneNode(true));
+                }
+            });
+        </script>
+
+    </body>
+
+</html>

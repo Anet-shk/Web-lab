@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <script type="module" src="scripts/index.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="topHeader">
+        <h1 class="logo">Teachinder</h1>
+        <input
+          class="searchInput"
+          type="text"
+          placeholder="Name, note or age to search"
+          id="headerSearch"
+          list="headerSearchDataList"/>
+        <button class="searchButton">Search</button>
+      </div>
+      <div class="bottomHeader">
+        <nav>
+          <ul>
+            <li><a href="#teachers"> Teachers </a></li>
+            <li><a href="#statistics"> Statistics </a></li>
+            <li><a href="#favorites"> Favorites </a></li>
+            <li><a href="#about"> About </a></li>
+          </ul>
+        </nav>
+        <button class="addTeacherButton">Add teacher</button>
+      </div>
+    </header>
+    <main>
+      <section class="topTeachersSection">
+        <h2 id="teachers" class="sectionHeaders">Top Teachers</h2>
+        <form>
+          <span>
+            <label for="filtersCountry">Країна: </label>
+            <input type="text" name="country" id="filtersCountry" list="filtersCountryDataList">
+          </span>
+          <span>
+            <label for="filtersAge">Вік: </label>
+            <input type="number" name="age" id="filtersAge" min="1" max="150">
+          </span>
+          <span>
+            <label for="filtersGender">Гендер: </label>
+            <select name="gender" id="filtersGender">
+              <option value="NA">не важливо</option>
+              <option value="Male">чоловіки</option>
+              <option value="Female">жінки</option>
+            </select>
+          </span>
+          <span>
+            <label for="filtersFavorite">Улюбленці: </label>
+            <input type="checkbox" name="favorites" id="filtersFavorite">
+          </span>
+        </form>
+        <ul id="topTeachersUl">
+          <li class="teachersCard">
+            <short-profile data-bgColor="blue">
+              <span class="teacherCardPhoto" slot="photo">
+                <div>
+                  <img
+                    alt="Photo"
+                    title="profile picture"
+                    src="./Photo/1.jpg" />
+                </div>
+              </span>
+              <span class="teacherCardName" slot="name">Floor Jansen</span>
+              <span slot="details" id="temporaryShortProfile">Докладніше</span>
+            </short-profile>
+          </li>
+          <li class="teachersCard">
+            <short-profile data-bgColor="blue">
+              <span class="teacherCardPhoto" slot="photo"
+                ><div>
+                  <img
+                    alt="Photo"
+                    title="profile picture"
+                    src="./Photo/2.jpeg" /></div
+              ></span>
+              <span class="teacherCardName" slot="name">Ihor Tkachuk</span>
+              <span slot="details"><a href="google.com">Докладніше</a></span>
+            </short-profile>
+          </li>
+        </ul>
+      </section>
+      <section class="statisticsSection">
+        <h2 id="statistics" class="sectionHeaders">Statistics</h2>
+        <table id="statisticsTable">
+          <thead>
+            <tr>
+              <td width="10px" height="10px" id="statisticsName">Ім'я</td>
+              <td width="10px" height="10px" id="statisticsAge">Вік</td>
+              <td width="10px" height="10px" id="statisticsGender">Стать</td>
+              <td width="10px" height="10px" id="statisticsCountry">Країна</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="10px" height="10px">0</td>
+              <td width="10px" height="10px">0</td>
+              <td width="10px" height="10px">gender</td>
+              <td width="10px" height="10px">country</td>
+            </tr>
+          </tbody>
+          
+        </table>
+      </section>
+      <section class="favoritesSection">
+        <h2 id="favorites" class="sectionHeaders">Favorites</h2>
+        <ul id="favoritesTeachersUl">
+          <li class="teachersCard">
+            <short-profile data-bgColor="blue">
+              <span class="teacherCardPhoto" slot="photo"
+                ><div>
+                  <img
+                    alt="Photo"
+                    title="profile picture"
+                    src="./Photo/1.jpg" /></div
+              ></span>
+              <span class="teacherCardName" slot="name">Floor Jansen</span>
+              <span slot="details"><a href="google.com">Докладніше</a></span>
+            </short-profile>
+          </li>
+        </ul>
+      </section>
+      <h2 id="favorites" class="sectionHeaders"></h2>
+    </main>
+    <footer>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque
+        facere, hic impedit itaque molestiae sit tempore? Ea in mollitia natus
+        rerum voluptates. Ea ex excepturi facere tempora. Aliquid asperiores hic
+        impedit iusto natus quaerat ratione sit? Culpa iusto optio voluptas
+        voluptate. Enim eveniet fugit lure malores molestiae, praesentium quia.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
+        eligendi illum in inventore ipsum odio officiis omnis quisquam sed
+        tempora?
+      </p>
+      <p>
+        Lorem Ipsum dolor sit amet, consectetur adipisicing elit. A atque esse
+        expedita id lusto mollitia, odit sint ullam veritatis vero?
+      </p>
+      <div class="footerNav">
+        <ul>
+          <li><a href="#teachers"> Teachers </a></li>
+          <li><a href="#statistics"> Statistics </a></li>
+          <li><a href="#favorites"> Favorites </a></li>
+          <li><a href="#about"> About </a></li>
+        </ul>
+        <button class="addTeacherButton">Add teacher</button>
+      </div>
+    </footer>
+
+    <!-- modal windows -->
+    <div id="darkCover" class="disabledView"></div>
+    <div id="addTeacher" class="modalWindow disabledView addTeacher">
+      <div class="formHeader">
+        <div class="textFormHeader">Add teacher</div>
+        <div class="closeBlockFormHeader">
+          <img
+            src="./Photo/x-mark-close.svg"
+            alt="close modal window"
+            title="x-mark close icon" />
+        </div>
+      </div>
+      <form>
+        <label for="name">Повне ім’я:</label>
+        <input type="text" id="full_name" />
+        <span class="genderSpan">
+          <label class="genderGeneral">Стать</label>
+          <label for="female">Жінка</label>
+          <input type="radio" id="female" name="gender" />
+          <label for="male">Чоловік</label>
+          <input type="radio" id="male" name="gender" />
+        </span>
+        <span class="pairFlexSpan">
+          <span class="fourElGroupSpan">
+            <span class="pairGroupSpan">
+              <label for="email">Email:</label>
+              <input type="email" id="email" />
+            </span>
+            <span class="pairGroupSpan">
+              <label for="phone">Телефон:</label>
+              <input type="tel" id="phone" />
+            </span>
+          </span>
+          <span class="fourElGroupSpan">
+            <span class="pairGroupSpan">
+              <label for="country">Країна:</label>
+              <input type="text" id="country" />
+            </span>
+            <span class="pairGroupSpan">
+              <label for="city">Місто:</label>
+              <input type="text" id="city" />
+            </span>
+          </span>
+        </span>
+        <label for="date">Дата народження:</label>
+        <input type="date" id="date" />
+        <label for="fon">Бажаний колір фону:</label>
+        <input type="color" id="fon" />
+        <label for="note">Коментар:</label>
+        <textarea id="note" name="w3review" rows="4" cols="50"></textarea>
+        <input
+          type="submit"
+          name="SubmitButton"
+          id="addTeacherButton"
+          class="confirmButton"
+          value="Add" />
+      </form>
+    </div>
+
+    <div id="full-profile" class="modalWindow disabledView fullProfile">
+      <div class="formHeader">
+        <div class="textFormHeader">Add teacher</div>
+        <div class="closeBlockFormHeader">
+          <img
+            src="./Photo/x-mark-close.svg"
+            alt="close modal window"
+            title="x-mark close icon" />
+        </div>
+      </div>
+      <full-profile data-bgColor="blue">
+        <span slot="photo"><img src="Photo/1.jpg" /></span>
+        <span slot="name">Floor Jansen</span>
+        <span slot="gender">woman</span>
+        <span slot="old">29</span>
+        <span slot="email"
+          ><a href="floorjan@gmail.com">floorjan@gmail.com</a></span
+        >
+        <span slot="tel"><a href="tel:+380123456789">+380123456789</a></span>
+        <span slot="country">Ukraine</span>
+        <span slot="town">Kyiv</span>
+        <span slot="comment">Alright</span>
+        <span slot="map"><a href="https://google.com">google</a></span>
+      </full-profile>
+    </div>
+
+    <div id="full-profile2" style="display: none">
+      <full-profile data-bgColor="yellow">
+        <span slot="photo"><img src="Photo/2.jpeg" /></span>
+        <span slot="name">Ihor Tkachuk</span>
+        <span slot="gender">man</span>
+        <span slot="old">32</span>
+        <span slot="email">ihortkach@gmail.com</span>
+        <span slot="tel"><a href="tel:+380123456789">+380123456789</a></span>
+        <span slot="country">Ukraine</span>
+        <span slot="town">Kyiv</span>
+        <span slot="comment">ok</span>
+        <span slot="map"><a href="https://google.com">google</a></span>
+      </full-profile>
+    </div>
+
+    <!-- template with scripts -->
+    <template id="shortProfileTemplate">
+      <p>
+        <slot name="photo"></slot>
+      </p>
+      <p>
+        <slot name="name"></slot>
+      </p>
+      <p>
+        <slot name="details"></slot>
+      </p>
+    </template>
+
+    <script>
+      customElements.define(
+        'short-profile',
+        class extends HTMLElement {
+          constructor() {
+            super();
+
+            const shortProfileTemplate = document.getElementById(
+              'shortProfileTemplate'
+            );
+
+            const shortProfile = shortProfileTemplate.content;
+
+            const shadowRoot = this.attachShadow({ mode: 'open' }).appendChild(
+              shortProfile.cloneNode(true)
+            );
+          }
+        }
+      );
+    </script>
+
+    <template id="fullProfileTemplate">
+      <style>
+        .firstP {
+          margin-top: 0px;
+          padding-top: 10px;
+        }
+        p {
+          margin: 10px 0px;
+        }
+        .map {
+          padding-left: 15px;
+          margin: 0px 0px 10px 0px;
+        }
+      </style>
+      <slot name="photo"></slot>
+      <p class="firstP"><slot name="name"></slot></p>
+      <p><slot name="gender"></slot></p>
+      <p><slot name="old"></slot></p>
+      <p><slot name="email"></slot></p>
+      <p><slot name="tel"></slot></p>
+      <p><slot name="country"></slot></p>
+      <p><slot name="town"></slot></p>
+      <p><slot name="comment"></slot></p>
+      <br />
+      <p class="map"><slot name="map"></slot></p>
+    </template>
+    <script>
+      customElements.define(
+        'full-profile',
+        class extends HTMLElement {
+          // Наследование обеспечивает, что мы имеет свойства и методы по умолчанию встроенного HTML элемента
+
+          // Вызывается всякий раз, когда создается новый элемент
+          constructor() {
+            // Вызываем родительский конструктор, т.е конструктор для HTMLElement. Таким образом устанавливаются свойства базового HTML элемента.
+            super();
+
+            // Берет <template> и хранит его в переменной `warinng`
+            const fullProfileTemplate = document.getElementById(
+              'fullProfileTemplate'
+            );
+
+            // Хранит контент шаблона в переменной `mywarning`
+            const fullProfile = fullProfileTemplate.content;
+
+            const shadowRoot = this.attachShadow({ mode: 'open' }).appendChild(
+              fullProfile.cloneNode(true)
+            );
+          }
+        }
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,562 @@
+:root {
+  --second-color: orangered;
+  --hover-second-color: rgb(145, 39, 0);
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 0px 100px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+@media (max-width: 768px) {
+  body {
+    max-width: 768px;
+    padding: 5px 20px;
+  }
+}
+
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.disabledScroll {
+  overflow: hidden;
+}
+
+.disabledView {
+  display: none;
+  /* visibility: hidden; */
+}
+
+/* header */
+
+header {
+}
+
+.topHeader {
+  display: grid;
+  grid-template-columns: 700px 210px 70px;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .topHeader {
+    grid-template-columns: 400px 207px 80px;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+.logo {
+  text-shadow: var(--second-color) -1px -1px 1px, rgb(0, 0, 0) 1px 1px 1px;
+  color: white;
+  font-size: 40px;
+}
+
+.searchDiv {
+  height: 100%;
+}
+
+.searchInput {
+  padding: 4px;
+  height: 80%;
+  box-sizing: border-box;
+}
+
+.searchButton {
+  color: var(--second-color);
+  border: var(--second-color) 1px solid;
+  background-color: white;
+  height: 80%;
+}
+
+.searchButton:hover {
+  color: white;
+  background-color: var(--second-color);
+}
+
+.bottomHeader {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav {
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 45%;
+}
+@media (max-width: 768px) {
+  nav ul {
+    width: 70%;
+  }
+}
+
+nav li {
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--second-color);
+}
+
+nav a:hover {
+  color: var(--hover-second-color);
+}
+
+.addTeacherButton {
+  width: 15%;
+  padding: 4px;
+  height: 50px;
+  color: var(--second-color);
+  border: var(--second-color) 1px solid;
+  background-color: white;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+@media (max-width: 768px) {
+  .addTeacherButton {
+    width: 25%;
+  }
+}
+
+.addTeacherButton:hover {
+  color: white;
+  background-color: var(--second-color);
+  border: gray 1px solid;
+}
+
+/* main */
+main {
+}
+
+.topTeachersSection {
+}
+
+.sectionHeaders {
+  width: 50%;
+  margin: auto;
+  padding-top: 20px;
+  margin-top: 30px;
+  border-top: black 1px solid;
+  text-align: center;
+  font-size: 30px;
+}
+
+.topTeachersSection form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  height: 40px;
+}
+
+.topTeachersSection input {
+  border-radius: 2px;
+  height: 20px;
+}
+
+.topTeachersSection ul {
+  margin-top: 20px;
+  list-style: none;
+  text-align: center;
+  max-width: 1000px;
+  color: black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+@media (max-width: 768px) {
+  .topTeachersSection ul {
+    width: 100%;
+  }
+}
+
+.teachersCard {
+  width: 20%;
+  height: 260px;
+  color: black;
+  min-width: 150px;
+  padding: 5px;
+}
+@media (max-width: 768px) {
+  .teachersCard {
+    width: 25%;
+  }
+}
+
+.teachersCard short-profile {
+}
+
+.teacherCardPhotoWrapper {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+}
+
+.teacherCardPhotoFrame {
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 70px;
+  margin: auto;
+  border: var(--second-color) 3px solid;
+}
+
+.teacherCardPhotoFrame img {
+  display: inline-block;
+  width: 140px;
+  transform: translateY(calc(70px - 50%));
+}
+
+.teacherCardName {
+  font-weight: bold;
+}
+
+.teachersCard span[slot='details'] {
+  cursor: pointer;
+}
+
+.teachersCard a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.statisticsSection {
+  max-width: 1000px;
+}
+
+.statisticsSection table {
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.statisticsSection table thead td {
+  padding-bottom: 15px;
+  text-align: center;
+  display: table-cell;
+  cursor: pointer;
+}
+
+.statisticsSection table tr {
+  font-size: larger;
+}
+
+.statisticsSection tbody td, .statisticsSection tbody td {
+  text-align: center;
+  display: table-cell;
+  padding-bottom: 5px;
+}
+
+#paginationDiv {
+  text-align: center;
+  padding-top: 15px;
+  font-size: larger;
+  display: flex;
+  justify-content: space-around;
+  max-width: 500px;
+  margin: auto;
+  flex-wrap: wrap-reverse;
+}
+
+#paginationDiv span {
+  cursor: pointer;
+}
+
+.favoritesSection ul {
+  margin-top: 20px;
+  list-style: none;
+  text-align: center;
+  max-width: 1000px;
+  color: black;
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: flex-start;
+  overflow: auto;
+  z-index: 1;
+}
+
+footer {
+  margin-bottom: 20px;
+}
+
+footer p {
+  font-size: 16px;
+  margin: 5px;
+}
+
+.footerNav {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 20px;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+@media (max-width: 768px) {
+  footer ul {
+    width: 55%;
+  }
+}
+
+footer li {
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--second-color);
+}
+
+footer a:hover {
+  color: var(--hover-second-color);
+}
+
+/* modal windows */
+#darkCover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.modalWindow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background-color: rgb(255, 249, 241);
+}
+
+.addTeacher {
+  width: 565px;
+}
+
+.modalWindow form {
+  padding: 10px 5px;
+}
+
+.formHeader {
+  background-color: rgb(23, 39, 53);
+  color: white;
+  font-size: 18px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.textFormHeader {
+  margin: 10px;
+}
+
+.closeBlockFormHeader {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.modalWindow label,
+.modalWindow input,
+.modalWindow textarea {
+  width: 490px;
+  display: block;
+  margin: auto;
+}
+
+.modalWindow input,
+.modalWindow textarea {
+  height: 25px;
+}
+
+.modalWindow label {
+  margin: 10px 0px 5px 0px;
+  padding-left: 35px;
+}
+
+.genderSpan {
+  padding-left: 35px;
+  margin: 10px 0px 5px 0px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  width: 55%;
+  padding-left: 0px;
+}
+
+.genderGeneral {
+  margin-right: auto;
+}
+
+label[for='woman'] {
+  flex-shrink: 1;
+  min-width: 55px;
+}
+
+#woman {
+  flex-shrink: 2;
+  max-width: 20px;
+}
+
+label[for='man'] {
+  min-width: 65px;
+}
+
+#man {
+  flex-shrink: 2;
+  max-width: 20px;
+}
+
+.pairFlexSpan {
+  display: flex;
+  justify-content: space-between;
+  width: 490px;
+  margin: 0px auto;
+  padding: 0px;
+}
+
+.fourElGroupSpan {
+  padding: 0px;
+}
+
+.pairGroupSpan {
+  padding: 0px;
+}
+
+.pairGroupSpan input,
+.pairGroupSpan label {
+  width: 200px;
+  padding: 0px;
+}
+
+#date {
+  width: 200px;
+  margin: 0px;
+  margin-left: 35px;
+}
+
+label[for='fon'] {
+  display: inline-block;
+  width: 200px;
+  margin-top: 20px;
+}
+
+#fon {
+  display: inline-block;
+  width: 15%;
+}
+
+#comment {
+  height: 50px;
+}
+
+.confirmButton {
+  color: var(--second-color);
+  border-color: var(--second-color);
+  margin-top: 15px;
+  height: 30px;
+}
+
+.fullProfile {
+  width: 900px;
+}
+
+full-profile {
+  font-size: 15px;
+}
+
+full-profile img {
+  margin: 10px;
+  width: 150px;
+  float: left;
+  margin-right: 15px;
+}
+
+full-profile span[slot='name'] {
+  font-size: 25px;
+}
+
+full-profile a:hover {
+  color: var(--second-color);
+}
+
+full-profile span[slot='map'] {
+  font-size: 18px;
+  float: right;
+}
+
+full-profile span[slot='map'] > * {
+  width: 400px;
+  height: 200px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+full-profile span[slot='comment'], full-profile span[slot='town'] {
+  margin-left: 10px;
+}
+
+.favoriteIconDiv {
+  /* background-color: rgba(214, 178, 125, 0.5); */
+  position: absolute;
+  top: 10px; 
+  right: 20px;
+  width: fit-content;
+}
+
+.favoriteIcon {
+  position: absolute;
+  top: 0px;
+  right: -10px;
+  width: 50px;
+  z-index: 2;
+}
+
+.darkBackground {
+  background-color: rgb(228, 228, 228);
+}
